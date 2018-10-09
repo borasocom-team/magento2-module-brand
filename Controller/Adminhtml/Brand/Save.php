@@ -52,6 +52,7 @@ class Save extends Brand{
             );
             try {
                 $brand->save();
+                $this->messageManager->addSuccess(__('The brand has been saved.'));
 
                 if ($this->getRequest()->getParam('back')) {
                     $resultRedirect->setPath(

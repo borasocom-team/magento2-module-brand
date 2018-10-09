@@ -100,16 +100,7 @@
                         </item>
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="catalog/product/massDelete"/>
-                    </item>
-                </argument>
-            </action>
-            <action name="attributes">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="type" xsi:type="string">attributes</item>
-                        <item name="label" xsi:type="string" translate="true">Update attributes</item>
-                        <item name="url" xsi:type="url" path="catalog/product_action_attribute/edit"/>
+                        <item name="url" xsi:type="url" path="brand/brand/massDelete"/>
                     </item>
                 </argument>
             </action>
