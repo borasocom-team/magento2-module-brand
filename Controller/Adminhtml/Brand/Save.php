@@ -33,6 +33,11 @@ class Save extends Brand{
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             $brand = $this->brandBuilder->build($this->getRequest());
+
+            foreach ($data as $name => $datum){
+                $brand->setData($name, $datum);
+            }
+
             $this->_eventManager->dispatch(
                 'dmatthew_brand_brand_prepare_save',
                 [
