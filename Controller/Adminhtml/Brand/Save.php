@@ -35,7 +35,12 @@ class Save extends Brand{
             $brand = $this->brandBuilder->build($this->getRequest());
 
             foreach ($data as $name => $datum){
-                $brand->setData($name, $datum);
+                if(($name == 'url_key') && empty($datum) && !empty($data['name'])){
+                    $brand->setData($name,strtolower(str_replace('+','-',urlencode($data['name']))));
+                }
+                else{
+                    $brand->setData($name, $datum);
+                }
             }
 
             $this->_eventManager->dispatch(
