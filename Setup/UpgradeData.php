@@ -28,7 +28,7 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), '1.0.1', '<=')) {
             $eavSetup->addAttribute(
                 \Magento\Catalog\Model\Product::ENTITY, 'brand', [
-                    'type'                    => 'int',
+                    'type'                    => 'varchar',
                     'backend'                 => 'Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend',
                     'frontend'                => '',
                     'label'                   => 'Brand',

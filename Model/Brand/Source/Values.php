@@ -30,7 +30,7 @@ class Values extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
         foreach ($brands as $brand) {
             $brandOption = array(
                 'label' => $brand->getName(),
-                'value' => $index
+                'value' => $brand->getUrlKey()
             );
             array_push($this->_options, $brandOption);
 
