@@ -5,4 +5,19 @@
     <preference for="Dmatthew\Brand\Api\BrandAttributeRepositoryInterface" type="Dmatthew\Brand\Model\Brand\Attribute\Repository" />
     <preference for="Dmatthew\Brand\Api\Data\BrandAttributeSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
     <preference for="Dmatthew\Brand\Api\BrandRepositoryInterface" type="Dmatthew\Brand\Model\BrandRepository" />
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Dmatthew\Brand\Api\Data\BrandInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">brand_entity</item>
+                    <item name="eavEntityType" xsi:type="string">brand</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                    <item name="entityContext" xsi:type="array">
+                        <item name="store" xsi:type="string">Magento\Store\Model\StoreScopeProvider</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
