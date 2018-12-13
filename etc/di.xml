@@ -20,4 +20,21 @@
             </argument>
         </arguments>
     </type>
+    <type name="Dmatthew\Brand\Controller\Adminhtml\Brand\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Magento\Catalog\BrandImageUpload</argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\Catalog\BrandImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">catalog/tmp/brand</argument>
+            <argument name="basePath" xsi:type="string">catalog/brand</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
