@@ -8,8 +8,9 @@ class Upload extends \Magento\Backend\App\Action
     /**
      * Image uploader
      *
-     * @var \Magento\Catalog\Model\ImageUploader
+     * @var \Dmatthew\Brand\Model\ImageUploader
      */
+    //TODO: continuare da qui su ImageUploader
     protected $imageUploader;
 
     /**
@@ -87,7 +88,7 @@ class Upload extends \Magento\Backend\App\Action
     public function execute()
     {
         try {
-            $result = $this->imageUploader->saveFileToTmpDir('brand_image');
+            $result = $this->imageUploader->saveFileToTmpDir('brand');
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),

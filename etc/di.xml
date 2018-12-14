@@ -37,4 +37,5 @@
             </argument>
         </arguments>
     </virtualType>
+    <preference for="Magento\Catalog\Model\Category\DataProvider" type="Dmatthew\Brand\Model\Category\DataProvider" />
 </config>

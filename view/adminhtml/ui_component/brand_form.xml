@@ -101,7 +101,7 @@
                     <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
                     <item name="required" xsi:type="boolean">false</item>
                     <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="module/category_image/upload"/>
+                        <item name="url" xsi:type="url" path="brand/brand_image/upload"/>
                     </item>
                 </item>
             </argument>
