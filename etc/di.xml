@@ -35,7 +35,12 @@
                 <item name="gif" xsi:type="string">gif</item>
                 <item name="png" xsi:type="string">png</item>
             </argument>
+            <argument name="uploaderFactory" xsi:type="object">Magento\MediaStorage\Model\File\BrandUploaderFactory</argument>
         </arguments>
     </virtualType>
-    <preference for="Magento\Catalog\Model\Category\DataProvider" type="Dmatthew\Brand\Model\Category\DataProvider" />
+    <virtualType name="Magento\MediaStorage\Model\File\BrandUploaderFactory" type="Magento\MediaStorage\Model\File\UploaderFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Dmatthew\Brand\Model\File\BrandUploader</argument>
+        </arguments>
+    </virtualType>
 </config>

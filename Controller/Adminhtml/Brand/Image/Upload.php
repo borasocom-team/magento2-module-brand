@@ -10,7 +10,6 @@ class Upload extends \Magento\Backend\App\Action
      *
      * @var \Dmatthew\Brand\Model\ImageUploader
      */
-    //TODO: continuare da qui su ImageUploader
     protected $imageUploader;
 
     /**
