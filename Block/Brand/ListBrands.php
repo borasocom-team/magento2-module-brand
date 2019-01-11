@@ -34,8 +34,7 @@ class ListBrands extends ListProduct
         if ($this->_productCollection === null) {
 
             $this->_productCollection = $this->productCollectionFactory->create()
-                                                                       ->addAttributeToSelect('*')
-                                                                       ->addAttributeToFilter('brand', 'pippo');
+                                                                       ->addAttributeToSelect('*');
         }
 
         return $this->_productCollection;
