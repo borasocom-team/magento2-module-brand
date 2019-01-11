@@ -5,6 +5,7 @@ namespace Dmatthew\Brand\Ui\DataProvider\Brand\Form;
 use Magento\Eav\Model\Config;
 use Magento\Eav\Model\Entity\Type;
 use Dmatthew\Brand\Model\Brand;
+use Magento\Store\Model\StoreManagerInterface;
 use Magento\Ui\DataProvider\EavValidationRules;
 use Dmatthew\Brand\Model\ResourceModel\Brand\Collection;
 use Dmatthew\Brand\Model\ResourceModel\Brand\CollectionFactory as BrandCollectionFactory;
@@ -65,6 +66,8 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     protected $eavValidationRules;
 
+    protected $storeManager;
+
     /**
      * Constructor
      *
@@ -86,6 +89,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         BrandCollectionFactory $brandCollectionFactory,
         Config $eavConfig,
         FilterPool $filterPool,
+        StoreManagerInterface $storeManager,
         array $meta = [],
         array $data = []
     ) {
@@ -98,6 +102,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $this->meta['brand']['fields'] = $this->getAttributesMeta(
             $this->eavConfig->getEntityType('dmatthew_brand')
         );
+        $this->storeManager = $storeManager;
     }
 
     /**
@@ -114,6 +119,14 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         /** @var Brand $brand */
         foreach ($items as $brand) {
             $result['brand'] = $brand->getData();
+            if(!empty($result['brand']['brand_image']) && !is_array($result['brand']['brand_image'])){
+                $result['brand']['brand_image'] = array(
+                    array(
+                        'name' => $result['brand']['brand_image'],
+                        'url' => $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/brand/' . $result['brand']['brand_image']
+                    )
+                );
+            }
 
             $this->loadedData[$brand->getId()] = $result;
         }
